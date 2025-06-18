@@ -2,21 +2,24 @@ import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 
 def compute_risk_scores(df):
-    print("Columns in CSV:", df.columns.tolist())  # Debug print to check columns
-    # Strip whitespace from column headers to avoid KeyErrors
+    # Strip whitespace from column headers
     df.columns = df.columns.str.strip()
+    print("Columns in CSV after stripping:", df.columns.tolist())
 
-    # Normalize features between 0 and 1
+    # Try to select the features columns, catch if missing
+    try:
+        features = df[['on_time_pct', 'claim_rate', 'geopolitical_risk', 'past_delays']]
+    except KeyError as e:
+        print("KeyError! Available columns:", df.columns.tolist())
+        raise e
+
     scaler = MinMaxScaler()
-    features = df[['on_time_pct', 'claim_rate', 'geopolitical_risk', 'past_delays']]
     features_scaled = scaler.fit_transform(features)
 
-    # Higher claim_rate, geopolitical risk, and past delays increase risk
-    # on_time_pct inversely affects risk
     risk_features = features_scaled.copy()
-    risk_features[:, 0] = 1 - risk_features[:, 0]  # invert on_time_pct
+    risk_features[:, 0] = 1 - risk_features[:, 0]
 
-    # Average these factors for a risk score between 0 and 1
     risk_scores = risk_features.mean(axis=1)
     df['risk_score'] = risk_scores
     return df[['vendor_id', 'vendor_name', 'risk_score']]
+
