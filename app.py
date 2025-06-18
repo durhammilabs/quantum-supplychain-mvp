@@ -14,6 +14,7 @@ with tab1:
         "Generate cryptographically signed shipment tokens and verify authenticity "
         "using QR codes and JSON uploads."
     )
+
     shipment_id = st.text_input(
         "Shipment ID",
         "SHIP12345",
@@ -58,6 +59,8 @@ with tab1:
                 st.error("🚫 Invalid or tampered token!")
         except Exception as e:
             st.error(f"Error reading token file: {e}")
+
+    st.markdown("<br>", unsafe_allow_html=True)
 
 with tab2:
     st.header("Vendor Reliability Scoring")
