@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 
 def compute_risk_scores(df):
+    print("Columns in CSV:", df.columns.tolist())  # Debug print to check columns
     # Strip whitespace from column headers to avoid KeyErrors
     df.columns = df.columns.str.strip()
 
@@ -19,4 +20,3 @@ def compute_risk_scores(df):
     risk_scores = risk_features.mean(axis=1)
     df['risk_score'] = risk_scores
     return df[['vendor_id', 'vendor_name', 'risk_score']]
-
