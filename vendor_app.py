@@ -6,9 +6,12 @@ st.title("Vendor Reliability Scoring")
 
 uploaded_file = st.file_uploader("Upload vendor CSV", type="csv")
 if uploaded_file:
-    df = pd.read_csv(uploaded_file)
-    st.write("Columns detected in uploaded CSV:", df.columns.tolist())  # Debug print
-
+    df = pd.read_csv(uploaded_file, sep=',', engine='python')
+    df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)
+    df.columns = df.columns.str.strip()
+    
+    st.write("Columns detected in CSV:", df.columns.tolist())  # Debug print
+    
     scored = compute_risk_scores(df)
 
     st.write("## Vendor Risk Scores")
