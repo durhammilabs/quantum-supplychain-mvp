@@ -3,3 +3,4 @@ qrcode
 cryptography
 scikit-learn
 pandas
+matplotlib
