@@ -37,5 +37,21 @@ Visual Token Authentication
 
 Vendor Reliability Scoring
 
-They can be run separately or will be integrated into a unified dashboard soon.
+Both modules are now integrated into a unified dashboard for seamless operation
+
+---
+
+## Unified Dashboard
+
+We have integrated the Visual Token Authentication and Vendor Reliability Scoring modules into a single Streamlit app with a tabbed interface.
+
+Run the unified app with:
+
+pip install -r requirements.txt
+streamlit run app.py
+
+
+This combined app enables users to generate and verify shipment tokens as well as upload vendor data to assess risk scores, all within one dashboard.
+
+---
 
