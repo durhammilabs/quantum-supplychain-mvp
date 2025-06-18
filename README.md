@@ -47,3 +47,17 @@ This module provides a simple AI-driven system to score vendors based on shipmen
 ```bash
 pip install -r requirements.txt
 streamlit run vendor_app.py
+
+Combined MVP Modules
+This repository currently contains two key modules: Visual Token Authentication (to generate and verify cryptographically signed shipment tokens with QR codes) and Vendor Reliability Scoring (to upload vendor data CSV files and view AI-driven risk scores with color-coded heatmaps and high-risk alerts).
+
+How to Run
+Token Auth Module:
+pip install -r requirements.txt
+streamlit run app.py
+
+Vendor Scoring Module:
+pip install -r requirements.txt
+streamlit run vendor_app.py
+
+Upload the sample CSV file vendors.csv for vendor scoring.
