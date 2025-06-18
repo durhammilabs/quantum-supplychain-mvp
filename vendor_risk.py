@@ -2,6 +2,9 @@ import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 
 def compute_risk_scores(df):
+    # Strip whitespace from column headers to avoid KeyErrors
+    df.columns = df.columns.str.strip()
+
     # Normalize features between 0 and 1
     scaler = MinMaxScaler()
     features = df[['on_time_pct', 'claim_rate', 'geopolitical_risk', 'past_delays']]
@@ -16,3 +19,4 @@ def compute_risk_scores(df):
     risk_scores = risk_features.mean(axis=1)
     df['risk_score'] = risk_scores
     return df[['vendor_id', 'vendor_name', 'risk_score']]
+
