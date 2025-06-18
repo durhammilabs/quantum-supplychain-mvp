@@ -1,3 +1,5 @@
 streamlit
 qrcode
 cryptography
+scikit-learn
+pandas
