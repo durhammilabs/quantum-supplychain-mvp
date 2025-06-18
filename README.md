@@ -30,3 +30,20 @@ This is the first module of the supply chain system — a secure QR-style token 
 - Add vendor scoring module
 - Integrate GPT compliance parser
 - Use QR scanning via camera
+
+
+---
+
+## Vendor Reliability Scoring Module
+
+This module provides a simple AI-driven system to score vendors based on shipment history and geopolitical risk.
+
+- **`vendors.csv`** — Sample vendor dataset with performance metrics  
+- **`vendor_risk.py`** — Python module that computes risk scores from the dataset  
+- **`vendor_app.py`** — Streamlit app to upload vendor data and visualize risk levels with color-coded risk scores
+
+### How to Run
+
+```bash
+pip install -r requirements.txt
+streamlit run vendor_app.py
