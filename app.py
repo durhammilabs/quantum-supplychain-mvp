@@ -34,8 +34,6 @@ with tab1:
 
     uploaded = st.file_uploader("Upload token JSON for verification", type="json")
     if uploaded:
-        token_data = pd.read_json(uploaded)
-        # Reading JSON as dict
         import json
         token_data = json.load(uploaded)
         if verify_token(token_data, public_key):
@@ -62,3 +60,4 @@ with tab2:
         high_risk = scored[scored['risk_score'] > 0.6]
         if not high_risk.empty:
             st.warning(f"⚠️ High risk vendors detected:\n{', '.join(high_risk['vendor_name'])}")
+
