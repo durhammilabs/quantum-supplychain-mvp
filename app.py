@@ -61,3 +61,4 @@ with tab2:
         if not high_risk.empty:
             st.warning(f"⚠️ High risk vendors detected:\n{', '.join(high_risk['vendor_name'])}")
 
+
