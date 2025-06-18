@@ -1,63 +1,53 @@
-# Quantum Supply Chain MVP: Visual Token Auth
+Quantum Supply Chain MVP
 
-This is the first module of the supply chain system — a secure QR-style token that verifies shipment authenticity using cryptographic signatures.
+This project includes two key modules:
 
-## How to Run
+Visual Token Authentication: Secure QR-style tokens that verify shipment authenticity using cryptographic signatures.
 
-1. Clone the repo:
-   ```
-   git clone https://github.com/durhammilabs/quantum-supplychain-mvp.git
-   cd quantum-supplychain-mvp
-   ```
-
-2. Install dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
-
-3. Launch the Streamlit app:
-   ```
-   streamlit run app.py
-   ```
-
-4. Generate a token, scan or upload it for verification.
-
----
-
-## Next Steps
-
-- Add signature key persistence
-- Add vendor scoring module
-- Integrate GPT compliance parser
-- Use QR scanning via camera
-
-
----
-
-## Vendor Reliability Scoring Module
-
-This module provides a simple AI-driven system to score vendors based on shipment history and geopolitical risk.
-
-- **`vendors.csv`** — Sample vendor dataset with performance metrics  
-- **`vendor_risk.py`** — Python module that computes risk scores from the dataset  
-- **`vendor_app.py`** — Streamlit app to upload vendor data and visualize risk levels with color-coded risk scores
-
-### How to Run
-
-```bash
-pip install -r requirements.txt
-streamlit run vendor_app.py
-
-Combined MVP Modules
-This repository currently contains two key modules: Visual Token Authentication (to generate and verify cryptographically signed shipment tokens with QR codes) and Vendor Reliability Scoring (to upload vendor data CSV files and view AI-driven risk scores with color-coded heatmaps and high-risk alerts).
+Vendor Reliability Scoring: AI-driven system to score vendors based on shipment history and geopolitical risk.
 
 How to Run
-Token Auth Module:
+
+Token Authentication Module
+
+Clone the repo:
+git clone https://github.com/durhammilabs/quantum-supplychain-mvp.git
+cd quantum-supplychain-mvp
+
+Install dependencies:
 pip install -r requirements.txt
+
+Launch the Streamlit app:
 streamlit run app.py
 
-Vendor Scoring Module:
+Generate a token, then scan or upload it for verification.
+
+Vendor Reliability Scoring Module
+
+Install dependencies (if not done):
 pip install -r requirements.txt
+
+Launch the vendor scoring app:
 streamlit run vendor_app.py
 
-Upload the sample CSV file vendors.csv for vendor scoring.
+Upload the sample CSV file vendors.csv to view vendor risk scores.
+
+Next Steps
+
+Add signature key persistence
+
+Add vendor scoring integration into main dashboard
+
+Integrate GPT compliance parser
+
+Add QR scanning via camera
+
+Combined MVP Modules
+
+This repository currently contains two main modules:
+
+Visual Token Authentication
+
+Vendor Reliability Scoring
+
+They can be run separately or will be integrated into a unified dashboard soon.
